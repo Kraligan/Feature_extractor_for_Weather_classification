@@ -41,8 +41,8 @@ This approach is:
    - Accuracy
    - Confusion Matrix
 
-5. **(Optional) Feature Visualization**  
-   Reduce embeddings to 2D with PCA or t-SNE to visualize image clusters.
+5. **Feature Visualization**  
+   Reduce embeddings to 2D with PCA and t-SNE to visualize image clusters.
 
 ---
 
@@ -52,6 +52,34 @@ This approach is:
 - Build a robust image classification baseline
 - Understand the reusability of pretrained feature extractors in Computer Vision
 - Lay the foundation for future CV projects (clustering, retrieval, etc.)
+
+---
+
+## Results
+
+After extracting image embeddings with Im2Vec (ResNet18) and training a Random Forest classifier, we obtained the following performance on the weather classification task:
+
+| Class   | Precision | Recall | F1-score |
+|---------|-----------|--------|----------|
+| Cloudy  | 0.48      | 0.47   | 0.48     |
+| Foggy   | 0.90      | 0.58   | 0.70     |
+| Rainy   | 0.68      | 0.79   | 0.73     |
+| Snowy   | 0.82      | 0.83   | 0.83     |
+| Sunny   | 0.60      | 0.65   | 0.62     |
+
+- **Overall Accuracy**: `67%`
+- **Macro F1-score**: `0.67`
+
+These results show that **"snowy"** and **"rainy"** classes are well detected, while **"cloudy"** is the most difficult class to predict, likely due to its visual overlap with "sunny" and "foggy". Confusion matrix can be found in the folder model/.
+
+To better understand how the Im2Vec embeddings behave, we projected them using **t-SNE** to 2D space. The visualization reveals:
+
+- Clear separation for **"snowy"** and **"foggy"** classes, forming compact clusters.
+- Significant overlap between **"cloudy"**, **"sunny"**, and **"rainy"**, which explains the model confusion.
+
+![t-SNE Projection](visualizations/tsne_projection.png)
+
+This analysis confirms that while Im2Vec features can separate some visual concepts well, others require **more discriminative embeddings** or **a supervised CNN fine-tuning** to improve classification.
 
 ---
 
