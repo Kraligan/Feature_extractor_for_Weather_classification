@@ -1,0 +1,4 @@
+img2vec-pytorch
+scikit-learn
+xgboost
+pillow
