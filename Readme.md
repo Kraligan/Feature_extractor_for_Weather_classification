@@ -22,20 +22,7 @@ This approach is:
 - **Fast to implement**
 - **Resource-efficient**
 - **Highly reusable** in future computer vision projects where feature extraction is needed
-
----
-
-## Project Structure
-
-Meteo_Im2Vec_Classifier/ \
-│ \
-├── data/                # Weather images (cloudy, foggy, etc.) \
-│ \
-├── extract_features.py  # Extract Im2Vec vectors and labels \
-├── train_classifier.py  # Train and evaluate ML models \
-├── visualize_pca.py     # (Optional) Visualize features with PCA \
-└── README.md            # You are here \
-
+          
 ---
 
 ## Main Steps
